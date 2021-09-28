@@ -4,9 +4,9 @@ import IO from "./IO";
 import keys from '../keys.json';
 
 export type EventMap = {
-    'move': { x: number, y: number },
-    'down': keyof (typeof keys.BTN),
-    'up': keyof (typeof keys.BTN)
+    'move': [{ x: number, y: number }],
+    'down': [keyof (typeof keys.BTN)],
+    'up': [keyof (typeof keys.BTN)]
 };
 
 export type Event<Type extends keyof (typeof keys.EV) = keyof (typeof keys.EV)> = {
