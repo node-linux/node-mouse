@@ -1,6 +1,6 @@
 import EventEmitter from 'events';
 
-export type Events = { [key: string]: any };
+export type Events = { [key: string]: any[] };
 
 export default class IO<EventMap extends Events> {
 
@@ -14,7 +14,7 @@ export default class IO<EventMap extends Events> {
 
         emit.emit = <T extends keyof EventMap>(name: T, data: EventMap[T]) => ['string', 'symbol'].includes(typeof name) ? emitter.emit(name as string | symbol, data) : null;
 
-        this.on = function <T extends keyof EventMap>(this: IO<EventMap>, event: T, callback: EventMap[T]): IO<EventMap> {
+        this.on = function <T extends keyof EventMap>(this: IO<EventMap>, event: T, callback: (...args: EventMap[T]) => void): IO<EventMap> {
             if (typeof event === 'string' || typeof event === 'symbol') {
                 emitter.on(event, callback);
 
@@ -24,7 +24,7 @@ export default class IO<EventMap extends Events> {
             throw `Expected string or number.`;
         }.bind(this);
 
-        this.once = function <T extends keyof EventMap>(this: IO<EventMap>, event: T, callback: EventMap[T]): IO<EventMap> {
+        this.once = function <T extends keyof EventMap>(this: IO<EventMap>, event: T, callback: (...args: EventMap[T]) => void): IO<EventMap> {
             if (typeof event === 'string' || typeof event === 'symbol') {
                 emitter.once(event, callback);
 
