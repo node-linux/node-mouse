@@ -9,10 +9,10 @@ export default class IO<EventMap extends Events> {
 
     off: () => void;
 
-    constructor(emit: { emit: <T extends keyof EventMap>(name: T, data: EventMap[T]) => void }) {
+    constructor(emit: { emit: <T extends keyof EventMap>(name: T, ...data: EventMap[T]) => void }) {
         const emitter = new EventEmitter();
 
-        emit.emit = <T extends keyof EventMap>(name: T, data: EventMap[T]) => ['string', 'symbol'].includes(typeof name) ? emitter.emit(name as string | symbol, data) : null;
+        emit.emit = <T extends keyof EventMap>(name: T, ...data: EventMap[T]) => ['string', 'symbol'].includes(typeof name) ? emitter.emit(name as string | symbol, data) : null;
 
         this.on = function <T extends keyof EventMap>(this: IO<EventMap>, event: T, callback: (...args: EventMap[T]) => void): IO<EventMap> {
             if (typeof event === 'string' || typeof event === 'symbol') {

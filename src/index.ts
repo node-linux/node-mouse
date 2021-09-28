@@ -33,7 +33,7 @@ export const mouse: { pos: { x: number, y: number }, left: boolean, right: boole
 export default function open(device: string): IO<EventMap> {
     const data = fs.createReadStream(device);
 
-    const emit: { emit: <T extends keyof EventMap>(name: T, data: EventMap[T]) => any } = {emit: null};
+    const emit: { emit: <T extends keyof EventMap>(name: T, ...data: EventMap[T]) => any } = {emit: null};
     const emitter = new IO<EventMap>(emit);
 
     const parse = function (buffer: Buffer): Event {
