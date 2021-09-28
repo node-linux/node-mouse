@@ -4,6 +4,7 @@
     "main": "./build/mouse.js",
     "typings": "./build/d/index.d.ts",
     "scripts": {
+        "postinstall": "esbuild ./src/index.ts --outfile=./build/mouse.js --platform=node --target=node16 --bundle --sourcemap --format=cjs",
         "build": "esbuild ./src/index.ts --outfile=./build/mouse.js --platform=node --target=node16 --bundle --sourcemap --format=cjs",
         "server": "node --es-module-specifier-resolution=node --enable-source-maps=true ."
     },
