@@ -4,8 +4,8 @@ export type Events = { [key: string]: any[] };
 
 export default class IO<EventMap extends Events> {
 
-    on: <T extends keyof EventMap>(event: T, ...callback: EventMap[T]) => IO<EventMap>;
-    once: <T extends keyof EventMap>(event: T, ...callback: EventMap[T]) => IO<EventMap>;
+    on: <T extends keyof EventMap>(event: T, callback: (...args: EventMap[T]) => void) => IO<EventMap>;
+    once: <T extends keyof EventMap>(event: T, callback: (...args: EventMap[T]) => void) => IO<EventMap>;
 
     off: () => void;
 
