@@ -1,4 +1,5 @@
 index.js: clean
+	mkdir -p ./build/d
 	cp ./keys.json ./build/d/keys.json
 	cp ./keys.json ./build/keys.json
 	pnpm exec -r tsc
