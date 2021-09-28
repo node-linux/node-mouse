@@ -3,7 +3,7 @@
         "module": "commonjs",
         "target": "esnext",
         "sourceMap": true,
-        "lib": [],
+        "lib": ["esnext"],
         "resolveJsonModule": true,
         "sourceRoot": "./src/index.ts",
         "outDir": "./build/ts",
