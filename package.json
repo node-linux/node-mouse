@@ -1,0 +1,15 @@
+{
+    "name": "mouse",
+    "version": "1.0.0",
+    "main": "./build/mouse.js",
+    "typings": "./build/d/index.d.ts",
+    "scripts": {
+        "build": "esbuild ./src/index.ts --outfile=./build/mouse.js --platform=node --target=node16 --bundle --sourcemap --format=cjs",
+        "server": "node --es-module-specifier-resolution=node --enable-source-maps=true ."
+    },
+    "devDependencies": {
+        "@types/node": "latest",
+        "esbuild": "latest",
+        "typescript": "latest"
+    }
+}

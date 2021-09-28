@@ -1,0 +1,18 @@
+{
+    "compilerOptions": {
+        "module": "commonjs",
+        "target": "esnext",
+        "sourceMap": true,
+        "lib": [],
+        "resolveJsonModule": true,
+        "sourceRoot": "./src/index.ts",
+        "outDir": "./build/ts",
+        "allowSyntheticDefaultImports": true,
+        "esModuleInterop": true,
+        "declaration": true,
+        "declarationDir": "./build/d"
+    },
+    "exclude": [
+        "node_modules"
+    ]
+}
