@@ -1,12 +1,11 @@
 {
     "name": "mouse",
     "version": "1.0.0",
-    "main": "./build/mouse.js",
+    "main": "./build/index.js",
     "typings": "./build/d/index.d.ts",
     "scripts": {
-        "postinstall": "esbuild ./src/index.ts --outfile=./build/mouse.js --platform=node --target=node16 --bundle --sourcemap --format=cjs",
-        "build": "esbuild ./src/index.ts --outfile=./build/mouse.js --platform=node --target=node16 --bundle --sourcemap --format=cjs",
-        "server": "node --es-module-specifier-resolution=node --enable-source-maps=true ."
+        "postinstall": "make build",
+        "build": "make build"
     },
     "devDependencies": {
         "@types/node": "latest",
